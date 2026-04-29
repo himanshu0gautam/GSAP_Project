@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
 import '../External.css'
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
@@ -17,6 +17,13 @@ const About = () => {
 
   const imageDiv = useRef(null);
   const image = useRef(null);
+
+  useEffect(() => {
+  imageArray.forEach((src) => {
+    const img = new Image();
+    img.src = src;
+  });
+}, []);
 
   gsap.registerPlugin(ScrollTrigger)
 
@@ -47,6 +54,7 @@ const About = () => {
       }
     })
   })
+
 
   return (
     <>
