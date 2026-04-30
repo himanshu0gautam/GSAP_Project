@@ -14,11 +14,11 @@ const App = () => {
       <div className="text-white">
       <Navbar />
       <FullNavbar />
-        {/* <Routes>
+        <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<Agents />} />
           <Route path="/project" element={<Project />} />
-        </Routes> */}
+        </Routes>
 
       </div>
     </>

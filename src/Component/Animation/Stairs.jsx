@@ -50,7 +50,6 @@ const Stairs = (props) => {
     }, [currentPath])
 
 
-
     return (
         <>
             <div className="">
