@@ -10,55 +10,62 @@ const FullNavbar = () => {
   const { navbar, setNavbar } = useContext(navbarContext);
   console.log(navbar);
 
-  useGSAP(function () {
-    if (navbar) {
-      const tl = gsap.timeline();
+  useGSAP(
+    function () {
+      gsap.killTweensOf([".fullscreennav", ".stair2", ".link", ".navlink"]);
+      const tl = gsap.timeline({
+        defaults:{
+          ease:"expo.out",
+          duration:0.6
+        }
+      });
+      if (navbar) {
 
-      tl.to(".fullscreennav", {
-        display: "block",
-      });
+        tl.set(".fullscreennav", {
+          display: "block",
+        });
 
-      tl.to(".stair2", {
-        delay: 0.2,
-        height: "100%",
-        stagger: {
-          amount: -0.2,
-        },
-      });
+        tl.to(".stair2", {
+          height: "100%",
+          stagger: {
+            amount: -0.4,
+          },
+        });
 
-      tl.to(".link", {
-        opacity: 1,
-        rotateX: 0,
-        stagger: {
-          amount: 0.3,
-        },
-      });
-      tl.to(".navlink",{
-        opacity: 1,
-      })
-    } else {
-      const tl = gsap.timeline();
-      tl.to(".link", {
-        opacity: 0,
-        rotateX: 90,
-        stagger: {
-          amount: 0.1,
-        },
-      });
-      tl.to(".stair2", {
-        height: 0,
-        stagger: {
-          amount: 0.1,
-        },
-      });
-      tl.to(".navlink",{
-        opacity: 0,
-      })
-      tl.to(".fullscreennav", {
-        display: "none",
-      });
-    }
-  }, [navbar]);
+        tl.to(".link", {
+          opacity: 1,
+          rotateX: 0,
+          stagger: 0.05,
+        },"-=0.4");
+        tl.to(".navlink", {
+          opacity: 1,
+        },"<");
+      } else {
+        const tl = gsap.timeline();
+        tl.to(".link", {
+          opacity: 0,
+          rotateX: 90,
+          stagger: {
+            amount: 0.05,
+          },
+          duration: 0.4,
+        });
+        tl.to(".stair2", {
+          height: 0,
+          stagger: {
+            amount: 0.4,
+          },
+        },"-=0.2");
+        tl.to(".navlink", {
+          opacity: 0,
+        },"<");
+        tl.set(".fullscreennav", {
+          display: "none",
+        });
+      }
+    },
+    [navbar],
+  );
 
   return (
     <div
@@ -78,7 +85,7 @@ const FullNavbar = () => {
       </div>
       {/* main div */}
       <div ref={FullNavLinkref} className="realative">
-        <div className="navlink flex p-4 w-full justify-between items-start">
+        <div className="navlink flex w-full justify-between items-start">
           {/* navIcon */}
           <div className="">
             <div className="flex">
@@ -91,14 +98,14 @@ const FullNavbar = () => {
             onClick={() => {
               setNavbar(false);
             }}
-            className="closeBtn relative h-24 w-24 cursor-pointer"
+            className="closeBtn group relative h-30 w-24 px-[4rem] cursor-pointer"
           >
-            <div className="absolute top-1/2 left-1/2 h-full w-1 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-[#D3FD50]"></div>
-            <div className="absolute top-1/2 left-1/2 h-full w-1 -translate-x-1/2 -translate-y-1/2 -rotate-45 bg-[#D3FD50]"></div>
+            <div className=" absolute bg-white top-1/2 left-1/2 h-full w-0.5 -translate-x-1/2 -translate-y-1/2 rotate-45 group-hover:bg-[#D3FD50]"></div>
+            <div className=" absolute bg-white top-1/2 left-1/2 h-full w-0.5 -translate-x-1/2 -translate-y-1/2 -rotate-45 group-hover:bg-[#D3FD50]"></div>
           </div>
         </div>
 
-        <div id="allLink" className="py-10">
+        <div id="allLink" className="py-3">
           {/* Project */}
           <div className="link origin-top relative border-y-1">
             <h1 className="font-[font2] text-[8vw] text-center leading-[0.9] pt-2 uppercase">

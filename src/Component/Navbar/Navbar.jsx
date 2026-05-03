@@ -15,14 +15,17 @@ const Navbar = () => {
       </div>
 
       <div
-        onClick={()=>{setNavbar(true)}}
+        onClick={() => {
+          setNavbar(true);
+        }}
         onMouseEnter={() => {
           navGreenRef.current.style.height = "100%";
         }}
         onMouseLeave={() => {
           navGreenRef.current.style.height = "0%";
         }}
-        className="h-12 bg-black relative w-60"
+        
+        className="h-12 bg-black relative w-60 cursor-pointer"
       >
         <div className="relative h-full px-8 flex flex-col gap-1 items-end justify-center">
           <div className="w-14 h-[0.1rem] bg-amber-50 "></div>
@@ -30,7 +33,8 @@ const Navbar = () => {
         </div>
         <div
           ref={navGreenRef}
-          className="bg-[#D3FD50] transition-all duration-200 absolute top-0 h-0 w-full">
+          className="bg-[#D3FD50] transition-all duration-100 absolute top-0 h-0 w-full"
+        >
           <div className="relative h-full px-8 flex flex-col gap-1 items-end justify-center">
             <div className="w-14 h-[0.1rem] bg-black"></div>
             <div className="w-7 h-[0.1rem] bg-black"></div>
