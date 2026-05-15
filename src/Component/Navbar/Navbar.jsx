@@ -7,10 +7,10 @@ const Navbar = () => {
   const { navbar, setNavbar } = useContext(navbarContext);
 
   return (
-    <div className="h-15 z-4 flex fixed top-0 w-full items-start justify-between">
-      <div className="p-4">
+    <div className="h-12 fixed z-4 flex top-0 w-full items-start justify-between">
+      <div className="">
         <div className="flex">
-          <h1>Navbar</h1>
+          {/* <h1>Himanshu</h1> */}
         </div>
       </div>
 

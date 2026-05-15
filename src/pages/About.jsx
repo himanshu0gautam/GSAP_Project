@@ -58,7 +58,7 @@ const About = () => {
 
   return (
     <>
-      <div className="setion1 py-1">
+      <div className="setion1 py-1 text-black">
         <div ref={imageDiv} className="absolute overflow-hidden h-[16vw] w-[13vw] top-73 left-[30vw]">
           <img ref={image} className='rounded-2xl object-cover h-full w-full' src="https://k72.ca/images/teamMembers/MEGGIE_480X640_2.jpg?w=480&h=640&fit=crop&s=3604b19f8fc7b40f517954147698d847" alt="img1" />
         </div>
