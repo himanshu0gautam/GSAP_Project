@@ -22,7 +22,7 @@ const About = () => {
   // black bg effect
   const containerRef = useRef(null);
   const textRef = useRef(null);
-  const overlayImageRef  = useRef(null);
+  const overlayImageRef = useRef(null);
 
   useEffect(() => {
     imageArray.forEach((src) => {
@@ -78,36 +78,36 @@ const About = () => {
   );
 
   useGSAP(
-    ()=>{
-    gsap.to(textRef.current, {
-      xPercent:-50,
-      repeat: -1,
-      duration: 12,
-      ease: 'none'
-    })
-    // image
-    gsap.to(overlayImageRef.current,{
-      yPercent: 0,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: containerRef.current,
-        marker: true,
-        start: 'top top',
-        end: '+=100%',
-        scrub: 1,
-        pin: true
-      }
-    })
-  },
-  {scope: containerRef}
-)
+    () => {
+      gsap.to(textRef.current, {
+        xPercent: -50,
+        repeat: -1,
+        duration: 12,
+        ease: 'none'
+      })
+      // image
+      gsap.to(overlayImageRef.current, {
+        yPercent: 0,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: containerRef.current,
+          marker: true,
+          start: 'top top',
+          end: '+=100%',
+          scrub: 1,
+          pin: true
+        }
+      })
+    },
+    { scope: containerRef }
+  )
 
   return (
     <>
       <div className="setion1 py-1 text-black">
         <div
           ref={imageDiv}
-          className="absolute overflow-hidden h-[16vw] w-[13vw] top-73 left-[30vw]"
+          className="absolute overflow-hidden h-[16vw] w-[13vw] top-73 left-[30vw] max-sm:h-[30vw] max-sm:w-[24vw]"
         >
           <img
             ref={image}
@@ -118,28 +118,27 @@ const About = () => {
         </div>
 
         <div className="relative font-[font2]">
-          <div className="mt-[58vh]">
-            <h1 className="uppercase text-[16vw] text-center leading-[15vw]">
+          <div className="mt-[58vh] max-sm:mt-[40vh]">
+            <h1 className="uppercase text-[16vw] text-center leading-[15vw] max-sm:text-[14vw]">
               {" "}
               origin of <br /> inspiration
             </h1>
           </div>
 
-          <div className="font-[font1] pl-[40%]">
-            <p className="text-5xl">
+          <div className="font-[font1] pl-[40%] max-sm:pl-0">
+            <p className="text-5xl max-sm:text-xl max-sm:pt-20">
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"We
-              prioritize curiosity and collaboration, ensuring creative vision
-              always comes before personal ego. Because a brand is an evolving
-              entity defined by its values and
-              narrative,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; we look
-              beyond short-term wins to build lasting cultural influence. We
-              apply this principle to every brand story we craft."
+              prioritize curiosity and &nbsp;&nbsp;&nbsp;collaboration, ensuring creative vision
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;always comes before personal ego. &nbsp;&nbsp;&nbsp;Because a brand is an evolving
+              entity &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;defined by its values and narrative,&nbsp;&nbsp; <span> &nbsp;&nbsp;&nbsp;we look 
+              beyond short-term wins to </span>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; build lasting cultural influence. We
+            &nbsp;&nbsp;&nbsp;apply this principle to every brand story &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; we craft."
             </p>
           </div>
         </div>
-        <div className="py-58">
-          <div className=" p-24 ">
-            <div className="gap-16 flex font-[font2] text-xl font-bold">
+        <div className="py-58 max-sm:py-36">
+          <div className=" p-24  max-sm:p-4">
+            <div className="gap-16 flex font-[font2] text-xl font-bold  max-sm:flex-col  max-sm:gap-8  max-sm:text-[16px]">
               <h3 className="">
                 Our Work_ Born in curiosity, raised by dedication and fed with a
                 steady diet of creativity.
@@ -160,36 +159,35 @@ const About = () => {
 
       <div ref={colorchange} className="section2 h-screen">
 
- <div ref={containerRef} className="relative w-full h-screen overflow-hidden">
-      <img
-        src={bg}
-        alt="Background"
-        className="absolute inset-0 left-[33%] h-full object-cover z-0"
-      />
+        <div ref={containerRef} className="relative w-full h-screen overflow-hidden max-sm:w-1/2 max-sm:h-1/2 max-sm:flex justify-center items-center">
+          <img
+            src={bg}
+            alt="Background"
+            className="absolute inset-0 left-[33%] h-full object-cover z-0 max-sm:left-0"
+          />
 
-      <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
-        <div ref={textRef} className="moveX flex whitespace-nowrap">
-          <h1 className="font-[font2] text-[12vw] uppercase leading-[0.9] text-white font-extrabold tracking-wide drop-shadow-lg pr-12">
-            Himanshu &nbsp; Himanshu &nbsp; Himanshu
-          </h1>
+          <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+            <div ref={textRef} className="moveX flex whitespace-nowrap">
+              <h1 className="font-[font2] text-[12vw] uppercase leading-[0.9] text-white font-extrabold tracking-wide drop-shadow-lg pr-12">
+                Himanshu &nbsp; Himanshu &nbsp; Himanshu
+              </h1>
+            </div>
+          </div>
+
+          <div ref={overlayImageRef}
+            className="absolute inset-0 z-20 w-full h-full"
+            style={{
+              transform: 'translateY(100%)',
+              willChange: 'transform',
+            }}
+          >
+            <img
+              src={MyImg}
+              alt="Second Background"
+              className="w-full h-full object-cover"
+            />
+          </div>
         </div>
-      </div>
-
-<div ref={overlayImageRef}
-        className="absolute inset-0 z-20 w-full h-full"
-        style={{
-          transform: 'translateY(100%)', 
-          willChange: 'transform',
-        }}
-      >
-        <img
-          src={MyImg}
-          alt="Second Background"
-          className="w-full h-full object-cover"
-        />
-      </div>
-    </div>
-
 
       </div>
 

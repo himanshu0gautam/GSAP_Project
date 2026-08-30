@@ -1,7 +1,6 @@
-import { useGSAP } from "@gsap/react";
-import React, { useState } from "react";
+import React from "react";
 
-const ProjectCard = ({ data, setHoverTitle, setHoverYear, setTitle }) => {
+const ProjectCard = ({ data, setHoverTitle, setTitle }) => {
   return (
     <>
       <div
@@ -12,7 +11,7 @@ const ProjectCard = ({ data, setHoverTitle, setHoverYear, setTitle }) => {
         onMouseLeave={() => {
           setTitle(false);
         }}
-        className="w-1/2 h-full group transition-all relative hover:rounded-4xl overflow-hidden"
+        className="hero w-full h-125 group transition-all relative hover:rounded-4xl overflow-hidden max-sm:h-[60vh] max-sm:flex"
       >
         <img className="h-full w-full object-cover" src={data.image1} alt="" />
         <div className="opacity-0 transition-all group-hover:opacity-100 absolute top-0 left-0 h-full w-full flex items-center justify-center bg-amber/10">
@@ -30,7 +29,7 @@ const ProjectCard = ({ data, setHoverTitle, setHoverYear, setTitle }) => {
         onMouseLeave={() => {
           setTitle(false);
         }}
-        className="w-1/2 h-full group transition-all relative hover:rounded-4xl overflow-hidden"
+        className="hero w-full h-125 group transition-all relative hover:rounded-4xl overflow-hidden max-sm:h-[60vh]"
       >
         <img className="h-full w-full object-cover" src={data.image2} alt="" />
         <div className="opacity-0 transition-all group-hover:opacity-100 absolute top-0 left-0 h-full w-full flex items-center justify-center bg-amber/10">

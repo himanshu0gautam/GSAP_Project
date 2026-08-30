@@ -9,7 +9,7 @@ import { useRef } from "react";
 gsap.registerPlugin(ScrollTrigger);
 
 const Project = () => {
-  const lenis = useLenis(({ scroll }) => {});
+  const lenis = useLenis(({ scroll }) => { });
 
   useGSAP(() => {
     const heroDivs = gsap.utils.toArray(".hero");
@@ -77,7 +77,7 @@ const Project = () => {
   ];
 
   const [hoverTitle, setHoverTitle] = useState("hover an image");
-  const [hoveryear, setHoverYear] = useState("2025");
+  const [hoveryear] = useState("2025");
   const [title, setTitle] = useState(false);
   console.log(title);
 
@@ -112,6 +112,39 @@ const Project = () => {
     }
   }, [title]);
 
+  // string
+  let initalPath = `M 10 80 Q 450 80 890 80`
+  let finalPath = `M 10 80 Q 450 80 890 80`
+
+  const pathRef = useRef(null);
+  const svgRef = useRef(null)
+
+  const entermouse = (dets) => {
+    if (!svgRef.current) return
+    const rect = svgRef.current.getBoundingClientRect()
+    const relativeX = dets.clientX - rect.left;
+    const relativeY = dets.clientY - rect.top;
+
+    const scaledX = (relativeX / rect.width) * 900;
+    const scaledY = (relativeY / rect.height) * 160;
+
+    const dynamicPath = `M 10 80 Q ${scaledX} ${scaledY} 890 80`;
+
+    gsap.to(pathRef.current, {
+      attr: { d: dynamicPath },
+      duration: 0.3,
+      ease: "power3.out",
+      overwrite: "auto"
+    })
+  }
+  const mouseLeave = () => {
+    gsap.to(pathRef.current, {
+      attr: { d: finalPath },
+      duration: 1.2,
+      ease: "elastic.out(1, 0.2)",
+    })
+  }
+
   return (
     <div className="bg-white text-black min-h-screen">
       <div
@@ -124,34 +157,47 @@ const Project = () => {
         </div>
       </div>
       {/* name */}
-      <div className="pt-[42vh]">
-        <h1 className="font-[font1] flex text-[12vw] uppercase">
+      <div className="pb-[30vh] pt-[4vh] flex flex-col items-center justify-center w-full max-sm:pt-[30vh]">
+        <h1 className="font-[font1] flex text-[12vw] uppercase max-sm:text-[16vw]">
           Project
-          <span className="text-[2vw] pt-10 pl-2">17</span>
+          <span className="text-[2vw] pt-10 pl-2 max-sm:text-[4vw] max-sm:pt-2">17</span>
         </h1>
-      </div>
-
-      {/* description */}
-      <div className="-mt-18 card">
-        {project.map(function (elem, index) {
-          return (
-            <div
-              key={index}
-              className="hero w-full h-[500px] overflow-hidden mb-3 flex gap-1"
-            >
-              <ProjectCard
-                data={elem}
-                setHoverTitle={setHoverTitle}
-                setHoverYear={setHoverYear}
-                setTitle={setTitle}
-              />
-              ;
-            </div>
-          );
-        })}
-        <div className="h-[20vh] w-full"></div>
+        <div
+          className="string w-full max-w-[900px] mx-auto p-4 flex items-center justify-center cursor-pointer"
+          onMouseMove={entermouse}
+          onMouseLeave={mouseLeave}
+        >
+          <svg ref={svgRef}
+            viewBox="0 0 900 160" // Standard scaling coordinate system
+            width="100%"          // Full responsive width
+            height="100%"         // Full responsive height
+            xmlns="http://www.w3.org/2000/svg"
+            className="overflow-visible w-full h-auto">
+            <path ref={pathRef} d={initalPath} stroke="black" strokeWidth="4" fill="none" />
+        </svg>
       </div>
     </div>
+
+      {/* description */ }
+  <div className="-mt-18 card max-sm:mt-2">
+    {project.map(function (elem, index) {
+      return (
+        <div
+          key={index}
+          className="w-full overflow-hidden mb-3 flex gap-1 max-sm:flex-col"
+        >
+          <ProjectCard
+            data={elem}
+            setHoverTitle={setHoverTitle}
+            setTitle={setTitle}
+          />
+          ;
+        </div>
+      );
+    })}
+    <div className="h-[20vh] w-full"></div>
+  </div>
+    </div >
   );
 };
 

@@ -105,10 +105,10 @@ const FullNavbar = () => {
           </div>
         </div>
 
-        <div id="allLink" className="py-3">
+        <div id="allLink" className="py-3 max-sm:flex flex-col max-sm:py-[10rem]">
           {/* Project */}
-          <div className="link origin-top relative border-y-1">
-            <h1 className="font-[font2] text-[8vw] text-center leading-[0.9] pt-2 uppercase">
+          <div className="link origin-top relative border-y-1 ">
+            <h1 className="font-[font2] text-[8vw] text-center leading-[0.9] pt-2 uppercase max-sm:text-[16vw]">
               Project
             </h1>
 
@@ -155,7 +155,7 @@ const FullNavbar = () => {
 
           {/* about */}
           <div className="link origin-top relative border-y-1">
-            <h1 className="font-[font2] text-[8vw] text-center leading-[0.9] pt-2 uppercase">
+            <h1 className="font-[font2] text-[8vw] text-center leading-[0.9] pt-2 uppercase max-sm:text-[16vw]">
               About
             </h1>
 
@@ -202,7 +202,7 @@ const FullNavbar = () => {
 
           {/* contact */}
           <div className="link origin-top relative border-y-1">
-            <h1 className="font-[font2] text-[8vw] text-center leading-[0.9] pt-2 uppercase">
+            <h1 className="font-[font2] text-[8vw] text-center leading-[0.9] pt-2 uppercase max-sm:text-[16vw]">
               Contact
             </h1>
 
@@ -249,7 +249,7 @@ const FullNavbar = () => {
 
           {/* blog */}
           <div className="link origin-top relative border-y-1">
-            <h1 className="font-[font2] text-[8vw] text-center leading-[0.9] pt-2 uppercase">
+            <h1 className="font-[font2] text-[8vw] text-center leading-[0.9] pt-2 uppercase max-sm:text-[16vw]">
               Blog
             </h1>
 
