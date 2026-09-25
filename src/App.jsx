@@ -6,6 +6,7 @@ import Project from "./pages/Project";
 import Navbar from "./Component/Navbar/Navbar";
 import FullNavbar from "./Component/Navbar/FullNavbar";
 import ReactLenis from "lenis/react";
+import Contact from "./pages/Contact";
 // import Practice from "./Practice";
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<Agents />} />
             <Route path="/project" element={<Project />} />
+            <Route path="/contact" element={<Contact />} />
             {/* <Route path="/demo" element={<Practice />} /> */}
           </Routes>
         </div>

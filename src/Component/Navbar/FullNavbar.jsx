@@ -2,6 +2,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import React, { useContext, useRef } from "react";
 import { navbarContext } from "../../Context/Navcontext";
+import { Link } from "react-router-dom";
 
 const FullNavbar = () => {
   const FullNavLinkref = useRef(null);
@@ -14,9 +15,9 @@ const FullNavbar = () => {
     function () {
       gsap.killTweensOf([".fullscreennav", ".stair2", ".link", ".navlink"]);
       const tl = gsap.timeline({
-        defaults:{
-          ease:"expo.out",
-          duration:0.6
+        defaults: {
+          ease: "expo.out",
+          duration: 0.6
         }
       });
       if (navbar) {
@@ -36,10 +37,10 @@ const FullNavbar = () => {
           opacity: 1,
           rotateX: 0,
           stagger: 0.05,
-        },"-=0.4");
+        }, "-=0.4");
         tl.to(".navlink", {
           opacity: 1,
-        },"<");
+        }, "<");
       } else {
         const tl = gsap.timeline();
         tl.to(".link", {
@@ -55,10 +56,10 @@ const FullNavbar = () => {
           stagger: {
             amount: 0.4,
           },
-        },"-=0.2");
+        }, "-=0.2");
         tl.to(".navlink", {
           opacity: 0,
-        },"<");
+        }, "<");
         tl.set(".fullscreennav", {
           display: "none",
         });
@@ -108,49 +109,51 @@ const FullNavbar = () => {
         <div id="allLink" className="py-3 max-sm:flex flex-col max-sm:py-[10rem]">
           {/* Project */}
           <div className="link origin-top relative border-y-1 ">
+
             <h1 className="font-[font2] text-[8vw] text-center leading-[0.9] pt-2 uppercase max-sm:text-[16vw]">
               Project
             </h1>
+            <Link to="/project" onClick={() => setNavbar(false)}>
+              <div className="moveLink absolute flex top-0 text-black bg-[#D3FD50]">
+                <div className="moveX flex items-center">
+                  <h1 className="whitespace-nowrap font-[font2] text-[8vw] text-center leading-[0.9] pt-2 uppercase">
+                    See everything
+                  </h1>
+                  <img
+                    className="h-24 w-56 object-cover rounded-full shrink-0"
+                    src="https://k72.ca/images/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_640x290.jpg?w=640&h=290&s=ac50a70feaaa2601b3aacad544c6045b"
+                    alt=""
+                  />
+                  <h1 className="whitespace-nowrap font-[font2] text-[8vw] text-center leading-[0.9] pt-2 uppercase">
+                    See everything
+                  </h1>
+                  <img
+                    className="h-24 w-56 object-cover rounded-full shrink-0"
+                    src="https://k72.ca/images/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_640x290.jpg?w=640&h=290&s=ac50a70feaaa2601b3aacad544c6045b"
+                    alt=""
+                  />
+                </div>
 
-            <div className="moveLink absolute flex top-0 text-black bg-[#D3FD50]">
-              <div className="moveX flex items-center">
-                <h1 className="whitespace-nowrap font-[font2] text-[8vw] text-center leading-[0.9] pt-2 uppercase">
-                  See everything
-                </h1>
-                <img
-                  className="h-24 w-56 object-cover rounded-full shrink-0"
-                  src="https://k72.ca/images/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_640x290.jpg?w=640&h=290&s=ac50a70feaaa2601b3aacad544c6045b"
-                  alt=""
-                />
-                <h1 className="whitespace-nowrap font-[font2] text-[8vw] text-center leading-[0.9] pt-2 uppercase">
-                  See everything
-                </h1>
-                <img
-                  className="h-24 w-56 object-cover rounded-full shrink-0"
-                  src="https://k72.ca/images/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_640x290.jpg?w=640&h=290&s=ac50a70feaaa2601b3aacad544c6045b"
-                  alt=""
-                />
+                <div className="moveX flex items-center">
+                  <h1 className="whitespace-nowrap font-[font2] text-[8vw] text-center leading-[0.9] pt-2 uppercase">
+                    See everything
+                  </h1>
+                  <img
+                    className="h-24 w-56 object-cover rounded-full shrink-0"
+                    src="https://k72.ca/images/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_640x290.jpg?w=640&h=290&s=ac50a70feaaa2601b3aacad544c6045b"
+                    alt=""
+                  />
+                  <h1 className="whitespace-nowrap font-[font2] text-[8vw] text-center leading-[0.9] pt-2 uppercase">
+                    See everything
+                  </h1>
+                  <img
+                    className="h-24 w-56 object-cover rounded-full shrink-0"
+                    src="https://k72.ca/images/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_640x290.jpg?w=640&h=290&s=ac50a70feaaa2601b3aacad544c6045b"
+                    alt=""
+                  />
+                </div>
               </div>
-
-              <div className="moveX flex items-center">
-                <h1 className="whitespace-nowrap font-[font2] text-[8vw] text-center leading-[0.9] pt-2 uppercase">
-                  See everything
-                </h1>
-                <img
-                  className="h-24 w-56 object-cover rounded-full shrink-0"
-                  src="https://k72.ca/images/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_640x290.jpg?w=640&h=290&s=ac50a70feaaa2601b3aacad544c6045b"
-                  alt=""
-                />
-                <h1 className="whitespace-nowrap font-[font2] text-[8vw] text-center leading-[0.9] pt-2 uppercase">
-                  See everything
-                </h1>
-                <img
-                  className="h-24 w-56 object-cover rounded-full shrink-0"
-                  src="https://k72.ca/images/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_640x290.jpg?w=640&h=290&s=ac50a70feaaa2601b3aacad544c6045b"
-                  alt=""
-                />
-              </div>
-            </div>
+            </Link>
           </div>
 
           {/* about */}
@@ -158,7 +161,7 @@ const FullNavbar = () => {
             <h1 className="font-[font2] text-[8vw] text-center leading-[0.9] pt-2 uppercase max-sm:text-[16vw]">
               About
             </h1>
-
+            <Link to="/about" onClick={() => setNavbar(false)}>
             <div className="moveLink absolute flex top-0 text-black bg-[#D3FD50]">
               <div className="moveX flex items-center">
                 <h1 className="whitespace-nowrap font-[font2] text-[8vw] text-center leading-[0.9] pt-2 uppercase">
@@ -198,6 +201,7 @@ const FullNavbar = () => {
                 />
               </div>
             </div>
+            </Link>
           </div>
 
           {/* contact */}
@@ -206,45 +210,47 @@ const FullNavbar = () => {
               Contact
             </h1>
 
-            <div className="moveLink absolute flex top-0 text-black bg-[#D3FD50]">
-              <div className="moveX flex items-center">
-                <h1 className="whitespace-nowrap font-[font2] text-[8vw] text-center leading-[0.9] pt-2 uppercase">
-                  See everything
-                </h1>
-                <img
-                  className="h-24 w-56 object-cover rounded-full shrink-0"
-                  src="https://k72.ca/images/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_640x290.jpg?w=640&h=290&s=ac50a70feaaa2601b3aacad544c6045b"
-                  alt=""
-                />
-                <h1 className="whitespace-nowrap font-[font2] text-[8vw] text-center leading-[0.9] pt-2 uppercase">
-                  See everything
-                </h1>
-                <img
-                  className="h-24 w-56 object-cover rounded-full shrink-0"
-                  src="https://k72.ca/images/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_640x290.jpg?w=640&h=290&s=ac50a70feaaa2601b3aacad544c6045b"
-                  alt=""
-                />
-              </div>
+            <Link to="/contact" onClick={() => setNavbar(false)}>
+              <div className="moveLink absolute flex top-0 text-black bg-[#D3FD50]">
+                <div className="moveX flex items-center">
+                  <h1 className="whitespace-nowrap font-[font2] text-[8vw] text-center leading-[0.9] pt-2 uppercase">
+                    See everything
+                  </h1>
+                  <img
+                    className="h-24 w-56 object-cover rounded-full shrink-0"
+                    src="https://k72.ca/images/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_640x290.jpg?w=640&h=290&s=ac50a70feaaa2601b3aacad544c6045b"
+                    alt=""
+                  />
+                  <h1 className="whitespace-nowrap font-[font2] text-[8vw] text-center leading-[0.9] pt-2 uppercase">
+                    See everything
+                  </h1>
+                  <img
+                    className="h-24 w-56 object-cover rounded-full shrink-0"
+                    src="https://k72.ca/images/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_640x290.jpg?w=640&h=290&s=ac50a70feaaa2601b3aacad544c6045b"
+                    alt=""
+                  />
+                </div>
 
-              <div className="moveX flex items-center">
-                <h1 className="whitespace-nowrap font-[font2] text-[8vw] text-center leading-[0.9] pt-2 uppercase">
-                  See everything
-                </h1>
-                <img
-                  className="h-24 w-56 object-cover rounded-full shrink-0"
-                  src="https://k72.ca/images/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_640x290.jpg?w=640&h=290&s=ac50a70feaaa2601b3aacad544c6045b"
-                  alt=""
-                />
-                <h1 className="whitespace-nowrap font-[font2] text-[8vw] text-center leading-[0.9] pt-2 uppercase">
-                  See everything
-                </h1>
-                <img
-                  className="h-24 w-56 object-cover rounded-full shrink-0"
-                  src="https://k72.ca/images/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_640x290.jpg?w=640&h=290&s=ac50a70feaaa2601b3aacad544c6045b"
-                  alt=""
-                />
+                <div className="moveX flex items-center">
+                  <h1 className="whitespace-nowrap font-[font2] text-[8vw] text-center leading-[0.9] pt-2 uppercase">
+                    See everything
+                  </h1>
+                  <img
+                    className="h-24 w-56 object-cover rounded-full shrink-0"
+                    src="https://k72.ca/images/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_640x290.jpg?w=640&h=290&s=ac50a70feaaa2601b3aacad544c6045b"
+                    alt=""
+                  />
+                  <h1 className="whitespace-nowrap font-[font2] text-[8vw] text-center leading-[0.9] pt-2 uppercase">
+                    See everything
+                  </h1>
+                  <img
+                    className="h-24 w-56 object-cover rounded-full shrink-0"
+                    src="https://k72.ca/images/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_640x290.jpg?w=640&h=290&s=ac50a70feaaa2601b3aacad544c6045b"
+                    alt=""
+                  />
+                </div>
               </div>
-            </div>
+            </Link>
           </div>
 
           {/* blog */}
@@ -295,7 +301,7 @@ const FullNavbar = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 
